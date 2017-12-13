@@ -1,13 +1,21 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ImobTheme</title>
-</head>
-<body>
-    <h1>O Thema deu certo!</h1>
-</body>
-</html>
+<?php get_header(); ?>
+
+<main class="home-main">
+    <div class="container">
+        <h1>O Thema deu certo!</h1>
+        <ul class="imoveis-listagem">
+            <?php
+                if( have_posts() ) {
+                    while (have_posts()) {
+                        the_post();
+            ?>
+            <li class="imoveis-listagem-item">
+                <?php the_post_thumbnail()?>
+                <h2><?php the_title(); ?></h2>
+                <p><?php the_content();}}?></p>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<?php get_footer(); ?>
