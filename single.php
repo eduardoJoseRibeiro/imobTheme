@@ -1,9 +1,11 @@
 <?php
-    get_header();
+    $css_escolhido = 'single.css';
+    require_once ('header.php');
 ?>
 
-<main>
-    <article>
+
+    <main class="container">
+    <article class="row">
 
 
     <?php
@@ -27,11 +29,10 @@
     </div>
     <?php
             }
-        }
-    ?>
+        } ?>
     </article>
 </main>
 
 <?php
-get_footer();
+    get_footer();
 ?>

@@ -1,12 +1,23 @@
-<?php get_header(); ?>
+<?php
+    $css_escolhido = 'index.css';
+    require_once ('header.php');
+?>
 
 <main class="home-main">
     <div class="container">
-        <h1>O Thema deu certo!</h1>
         <ul class="imoveis-listagem">
             <?php
+                $taxQuery = array(
+                    array(
+                        "taxonomy" => "localizacao",
+                        "field" => "slug",
+                        "terms" => "iturama"
+                    )
+                );
+
                 $args = array(
-                        "post_type" => "imovel"
+                    "post_type" => "imovel",
+                    "tax_query" => $taxQuery
                 );
                 $loop = new WP_Query($args);
                 if( $loop->have_posts() ) {
